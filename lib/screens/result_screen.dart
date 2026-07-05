@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../models/prediction_result.dart';
+import '../widgets/prediction_card.dart';
+import 'home_screen.dart';
+import 'patient_form_screen.dart';
+
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key});
+  final PredictionResult result;
+
+  const ResultScreen({
+    super.key,
+    required this.result,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,88 +21,78 @@ class ResultScreen extends StatelessWidget {
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            const SizedBox(height: 20),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
 
-            const Icon(
-              Icons.favorite,
-              color: Colors.red,
-              size: 100,
-            ),
-
-            const SizedBox(height: 20),
-
-            const Text(
-              "Prediction Result",
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
+              PredictionCard(
+                riskPercentage: result.riskPercentage,
+                riskLevel: result.riskLevel,
+                recommendation: result.recommendation,
               ),
-            ),
 
-            const SizedBox(height: 30),
+              const SizedBox(height: 20),
 
-            Card(
-              elevation: 5,
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: const [
-                    Text(
-                      "Risk Level",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      "Low Risk",
-                      style: TextStyle(
-                        color: Colors.green,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
+              Card(
+                elevation: 4,
+                child: ListTile(
+                  leading: const Icon(
+                    Icons.access_time,
+                    color: Colors.blue,
+                  ),
+                  title: const Text("Prediction Time"),
+                  subtitle: Text(
+                    result.predictionTime.toString(),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 25),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.refresh),
+                  label: const Text("New Prediction"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                  ),
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const PatientFormScreen(),
                       ),
-                    ),
-                  ],
+                    );
+                  },
                 ),
               ),
-            ),
 
-            const SizedBox(height: 30),
+              const SizedBox(height: 12),
 
-            const Text(
-              "Recommendation",
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            const SizedBox(height: 10),
-
-            const Text(
-              "Maintain a healthy lifestyle, exercise regularly, eat a balanced diet, and consult a healthcare professional for medical advice.",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16),
-            ),
-
-            const Spacer(),
-
-            SizedBox(
-              width: double.infinity,
-              height: 55,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text(
-                  "Back",
-                  style: TextStyle(fontSize: 18),
+              SizedBox(
+                width: double.infinity,
+                child: OutlinedButton.icon(
+                  icon: const Icon(Icons.home),
+                  label: const Text("Back to Home"),
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const HomeScreen(),
+                      ),
+                      (route) => false,
+                    );
+                  },
                 ),
               ),
-            ),
-          ],
+
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
