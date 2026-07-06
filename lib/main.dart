@@ -13,12 +13,28 @@ class HeartFailureApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Heart Failure Prediction',
+
+      // 🌞 LIGHT MODE
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.red,
+          brightness: Brightness.light,
         ),
       ),
+
+      // 🌙 DARK MODE
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.red,
+          brightness: Brightness.dark,
+        ),
+      ),
+
+      // 🔁 AUTO SWITCH BASED ON PHONE SETTINGS
+      themeMode: ThemeMode.system,
+
       home: const HomeScreen(),
     );
   }
