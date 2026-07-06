@@ -42,14 +42,14 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
 
-              child: const Column(
-                children: [
+              child: Column(
+  children: [
 
-                  Icon(
-                    Icons.favorite,
-                    size: 90,
-                    color: Colors.white,
-                  ),
+    Image.asset(
+      'assets/images/app_logo.jpeg',
+      width: 90,
+      height: 90,
+    ),
 
                   SizedBox(height: 15),
 
@@ -161,16 +161,17 @@ class HomeScreen extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Column(
-                    children: [
+                child: Padding(
+  padding: const EdgeInsets.all(20),
+  child: Column(
+    children: [
 
-                      Icon(
-                        Icons.health_and_safety,
-                        color: Colors.red,
-                        size: 70,
-                      ),
+      Image.asset(
+        'assets/images/doctor_heart.jpg',
+        width: 120,
+        height: 120,
+        fit: BoxFit.cover,
+      ),
 
                       SizedBox(height: 15),
 
