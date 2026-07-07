@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 
+ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.light);
+
 void main() {
   runApp(const HeartFailureApp());
 }
@@ -10,32 +12,34 @@ class HeartFailureApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Heart Failure Prediction',
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, currentMode, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Heart Failure Prediction',
 
-      // 🌞 LIGHT MODE
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.red,
-          brightness: Brightness.light,
-        ),
-      ),
+          themeMode: currentMode,
 
-      // 🌙 DARK MODE
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.red,
-          brightness: Brightness.dark,
-        ),
-      ),
+          theme: ThemeData(
+            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.red,
+              brightness: Brightness.light,
+            ),
+          ),
 
-      // 🔁 AUTO SWITCH BASED ON PHONE SETTINGS
-      themeMode: ThemeMode.system,
+          darkTheme: ThemeData(
+            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.red,
+              brightness: Brightness.dark,
+            ),
+          ),
 
-      home: const HomeScreen(),
+          home: const HomeScreen(),
+        );
+      },
     );
   }
 }

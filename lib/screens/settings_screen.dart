@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../main.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -24,16 +25,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
         children: [
 
           SwitchListTile(
-            secondary: const Icon(Icons.dark_mode),
-            title: const Text("Dark Mode"),
-            subtitle: const Text("Enable dark theme"),
-            value: darkMode,
-            onChanged: (value) {
-              setState(() {
-                darkMode = value;
-              });
-            },
-          ),
+  secondary: const Icon(Icons.dark_mode),
+  title: const Text("Dark Mode"),
+  subtitle: const Text("Enable dark theme"),
+  value: darkMode,
+  onChanged: (value) {
+    setState(() {
+      darkMode = value;
+    });
+
+    themeNotifier.value =
+        value ? ThemeMode.dark : ThemeMode.light;
+  },
+),
 
           const Divider(),
 
