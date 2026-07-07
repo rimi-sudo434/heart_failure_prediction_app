@@ -15,6 +15,9 @@ A Flutter-based mobile application that predicts the risk of heart failure using
 
 ### 1. Home Screen
 
+
+![Home Screen](pic1.jpg)
+
 ### 2. Patient Information Input Screen (Part 1)
 
 ### 3. Patient Information Input Screen (Part 2)
