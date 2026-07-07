@@ -47,8 +47,9 @@ class HomeScreen extends StatelessWidget {
 
     Image.asset(
       'assets/images/app_logo.jpeg',
-      width: 90,
-      height: 90,
+      width: 80,
+      height: 80,
+      fit: BoxFit.contain,
     ),
 
                   SizedBox(height: 15),
@@ -86,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 16,
-                childAspectRatio: 1.15,
+                childAspectRatio: 0.95,
                 children: [
 
                   _menuCard(
@@ -168,8 +169,8 @@ class HomeScreen extends StatelessWidget {
 
       Image.asset(
         'assets/images/doctor_heart.jpg',
-        width: 120,
-        height: 120,
+        width: 100,
+        height: 100,
         fit: BoxFit.cover,
       ),
 
@@ -262,13 +263,15 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               Text(
-                title,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 17,
-                ),
-              ),
+  title,
+  textAlign: TextAlign.center,
+  maxLines: 2,
+  overflow: TextOverflow.ellipsis,
+  style: const TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 16,
+  ),
+),
             ],
           ),
         ),
