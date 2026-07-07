@@ -1,4 +1,4 @@
-# heart_failure_prediction_app
+# Heart Failure Prediction App
 
 A new Flutter project.
 
