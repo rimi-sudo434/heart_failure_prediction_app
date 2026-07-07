@@ -1,17 +1,57 @@
-# Heart Failure Prediction App
+# Heart Failure Prediction App ❤️
 
-A new Flutter project.
+A Flutter-based mobile application that predicts the risk of heart failure using Machine Learning. The application provides a simple and user-friendly interface to enter health-related information and receive prediction results.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- ❤️ Heart failure risk prediction
+- 📱 Flutter mobile application
+- 🌙 Working dark mode toggle
+- 🎨 Improved user interface
+- 🚀 Simple and fast user experience
+- 🐛 Bug fixes and performance improvements
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+(Add your app screenshots here)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Example:
+
+![Home Screen](image-link)
+
+![Prediction Screen](image-link)
+
+![Result Screen](image-link)
+
+## Technologies Used
+
+- Flutter
+- Dart
+- Machine Learning
+
+## Installation
+
+1. Download the latest APK from the **Releases** section.
+2. Install the APK on your Android device.
+3. Open the application.
+4. Enter required health information.
+5. Get the prediction result.
+
+## Version History
+
+### v1.0.1
+
+Updates:
+- Updated launcher icon
+- Updated application name
+- Added working dark mode toggle
+- Improved UI
+- Fixed bugs
+
+### v1.0.0
+
+Initial release:
+- First version of the application
+- Basic heart failure prediction functionality
+
+## Project Structure
